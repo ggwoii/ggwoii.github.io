@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Gadungan</title>
+
+<style>
+body {
+  background: black;
+  color: #00ff99;
+  font-family: monospace;
+  overflow: hidden;
+}
+
+.glitch {
+  font-size: 2.5em;
+  text-align: center;
+  margin-top: 40px;
+  position: relative;
+  animation: glitch 1s infinite;
+}
+
+@keyframes glitch {
+  0% { text-shadow: 2px 0 red, -2px 0 blue; }
+  50% { text-shadow: -2px 0 red, 2px 0 blue; }
+  100% { text-shadow: 2px 0 red, -2px 0 blue; }
+}
+
+#terminal {
+  width: 90%;
+  max-width: 600px;
+  height: 300px;
+  border: 2px solid #00ff99;
+  margin: 40px auto;
+  padding: 10px;
+  overflow-y: auto;
+}
+
+input {
+  width: 100%;
+  background: black;
+  border: none;
+  color: #00ff99;
+  font-family: monospace;
+  outline: none;
+}
+
+.glitch-screen {
+  animation: shake 0.2s infinite;
+}
+
+@keyframes shake {
+  0% { transform: translate(2px, 2px); }
+  50% { transform: translate(-2px, -2px); }
+  100% { transform: translate(2px, -2px); }
+}
+</style>
+</head>
+
+<body>
+
+<div class="glitch">WEBSITE GADUNGAN</div>
+<p style="text-align:center;">Ketik "1" Jika mau gua lacak alamat oran>
+
+<div id="terminal">
+  <div>$ siap untuk di kirim kepada atmin </div>
+</div>
+
+<input id="cmd" placeholder="ketik disini lalu enter">
+
+<audio id="laugh" src="hidup-jokowi.mp3"></audio>
+
+<script>
+const input = document.getElementById("cmd");
+const terminal = document.getElementById("terminal");
+const laugh = document.getElementById("laugh");
+
+input.addEventListener("keydown", function(e) {
+  if (e.key === "Enter") {
+    terminal.innerHTML += "<div>$ " + input.value + "</div>";
+    input.value = "";
+
+    terminal.innerHTML += "<div>⏳ mengirim pesan kepada atmin bapuk <>
+
+    setTimeout(() => {
+      document.body.classList.add("glitch-screen");
+      laugh.play();
+      terminal.innerHTML += "<div>💀 PESAN TERKIRIM DAN TUNGGU ATMIN M>
+    }, 2000);
+
+    terminal.scrollTop = terminal.scrollHeight;
+  }
+});
+</script>
+
+</body>
+</html>
